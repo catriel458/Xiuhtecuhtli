@@ -8,6 +8,17 @@ import shadowImg from './assets/images/shadow-rogue.png';
 import ariaImg from './assets/images/aria-wizard.png';
 import bossImg from './assets/images/xiuhtecuhtli-boss.png';
 
+import crashAztec from './assets/images/crash_aztec.png';
+import aztecWorship from './assets/images/aztec_worship.png';
+import spanishConquest from './assets/images/spanish_conquest.png';
+import vaticanChamber from './assets/images/vatican_chamber.png';
+import vaticanDestruction from './assets/images/vatican_destruction.png';
+import timeMachine from './assets/images/time_machine.png';
+import sumerianRecovery from './assets/images/sumerian_recovery.png';
+import futureTechnology from './assets/images/future_technology.png';
+import italianRenaissance from './assets/images/italian_renaissance.png';
+import heroesGathering from './assets/images/heroes_gathering.png';
+
 const RPGBattle = () => {
   // Definición de personajes
   const initialHeroes = [
@@ -282,52 +293,63 @@ const RPGBattle = () => {
     {
       title: "Hace 1500 años...",
       text: "Un ser de las estrellas cayó del cosmos, perdido en la inmensidad del espacio. Su nave se estrelló en las tierras del gran Imperio Azteca.",
-      bg: "from-purple-900 to-blue-900"
+      bg: "from-purple-900 to-blue-900",
+      bgImage: crashAztec
     },
     {
       title: "El Dios Caído",
       text: "Los originarios lo encontraron herido y lo acogieron como a una deidad. Lo llamaron el 'Portador de las Estrellas' y le construyeron un templo sagrado.",
-      bg: "from-yellow-600 to-orange-800"
+      bg: "from-yellow-600 to-orange-800",
+      bgImage: aztecWorship
+
     },
     {
       title: "La Invasión",
       text: "Pero llegaron los conquistadores españoles. El templo fue destruido, y Hernán Cortés robó en secreto al ser alienígena, llevándolo a España.",
-      bg: "from-red-800 to-gray-900"
+      bg: "from-red-800 to-gray-900",
+      bgImage: spanishConquest
     },
     {
       title: "500 Años de Cautiverio",
       text: "En las profundidades del Vaticano, fue mantenido en un sueño profundo. Los hombres le temían, pero no podían destruir lo que no comprendían.",
-      bg: "from-gray-800 to-black"
+      bg: "from-gray-800 to-black",
+      bgImage: vaticanChamber
     },
     {
       title: "El Despertar",
       text: "Una visión perturbó su letargo. Despertó lleno de ira, destruyó todo a su alrededor y encontró una sala secreta con tecnología prohibida.",
-      bg: "from-red-600 to-purple-800"
+      bg: "from-red-600 to-purple-800",
+      bgImage: vaticanDestruction
     },
     {
       title: "La Máquina del Tiempo",
       text: "Con sus últimas fuerzas, utilizó la máquina temporal para volver al pasado. Su misión era clara: venganza y destrucción.",
-      bg: "from-cyan-600 to-blue-800"
+      bg: "from-cyan-600 to-blue-800",
+      bgImage: timeMachine
     },
     {
       title: "Sumeria Antigua",
       text: "Llegó a la época sumeria para recuperarse y planear. Viajó al futuro año 3500 para obtener tecnología avanzada y crear un ejército de bioandrides.",
-      bg: "from-green-700 to-teal-800"
+      bg: "from-green-700 to-teal-800",
+      bgImage: sumerianRecovery
     },
     {
       title: "Atrapado en el Tiempo",
       text: "Pero la máquina se rompió al volver. Quedó atrapado en el pasado, creciendo en poder durante siglos, alimentando su sed de venganza.",
-      bg: "from-orange-700 to-red-800"
+      bg: "from-orange-700 to-red-800",
+      bgImage: futureTechnology 
     },
     {
       title: "Italia, 1450",
       text: "Ahora, transformado en Xiuhtecuhtli-9, un androide semidiós, ha decidido que es hora de atacar. Italia será el primer paso de su conquista.",
-      bg: "from-purple-800 to-red-900"
+      bg: "from-purple-800 to-red-900",
+      bgImage: italianRenaissance 
     },
     {
       title: "Los Últimos Héroes",
       text: "Cuatro valientes se alzan para enfrentar esta amenaza cósmica. El destino de la humanidad descansa en sus manos...",
-      bg: "from-blue-800 to-purple-900"
+      bg: "from-blue-800 to-purple-900",
+      bgImage: heroesGathering 
     }
   ];
 
@@ -350,8 +372,17 @@ const RPGBattle = () => {
   if (gamePhase === 'cinematic') {
     const currentStory = cinematicStory[cinematicStep];
     return (
-      <div className={`min-h-screen bg-gradient-to-b ${currentStory.bg} text-white flex items-center justify-center p-4`}>
-        <div className="max-w-4xl mx-auto text-center">
+      <div 
+        className={`min-h-screen bg-gradient-to-b ${currentStory.bg} text-white flex items-center justify-center p-4 relative`}
+        style={{
+          backgroundImage: `url(${currentStory.bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent animate-pulse">
               {currentStory.title}
